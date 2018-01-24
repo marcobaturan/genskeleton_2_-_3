@@ -24,8 +24,8 @@ def generator_skeleton_program():
     file.write("#!/usr/bin/env/python2.7" + os.linesep) 
     file.write("# _*_import: utf-8 _*_" + os.linesep)
     file.write("# Please, do not forget try comment and document under pep8." + os.linesep)
-    file.write("_author_ = "+ author + os.linesep)
-    file.write("_date_ = " + date + os.linesep)
+    file.write("_author_ = " +"'"+ author+"'" + os.linesep)
+    file.write("_date_ = " +"'"+ date +"'"+ os.linesep)
     file.write("# imports" + os.linesep)
     file.write(documentation +"  # Documentation" + os.linesep)
     file.write("# gobal vars" + os.linesep)
@@ -35,6 +35,8 @@ def generator_skeleton_program():
     file.write("# heritage class" + os.linesep)
     file.write("#   heritage class functions" + os.linesep)
     file.write('if __name__ == "__main__":' + os.linesep)
+    file.write('    # Erase pass and call class or functions here.' + os.linesep)
+    file.write('    pass' + os.linesep)
     file.close()
     
 if __name__ == "__main__":
