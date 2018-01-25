@@ -2,6 +2,7 @@
 # _*_import: utf-8 _*_
 
 import os
+import os.path
 
 
 """It is a program for meta-programming.
@@ -14,20 +15,29 @@ structure bassed in good practice. This script try to do this.
 """
 
 def generator_skeleton_program():
+    # Static variables.
     extension = ".py"
+    documentation = '"""Put here the documentation. TODO:... Follow PEP8. """'
+    # Dinamic variables.
+    base_path = raw_input("Enter the completed path were placed the script: ")
     name_program = raw_input("Enter a name for the program : ")
-    name = name_program + extension 
     author = raw_input("Enter name of author program: ")
     date = raw_input("Enter date in this format,../../....: ")
-    documentation = '"""Put here the documentation. TODO:... Follow PEP8. """'
-    file = open(name, "w")
+    # Generate archive.
+    name = name_program + extension
+    # Locate, put and open archive.
+    path_file = os.path.join(base_path, name )
+    # Write archive.
+    file = open(path_file, "w")
     file.write("#!/usr/bin/env/python2.7" + os.linesep) 
     file.write("# _*_import: utf-8 _*_" + os.linesep)
     file.write("# Please, do not forget try comment and document under pep8." + os.linesep)
+    file.write("# https://www.python.org/dev/peps/pep-0008/" + os.linesep) 
     file.write("_author_ = " +"'"+ author+"'" + os.linesep)
     file.write("_date_ = " +"'"+ date +"'"+ os.linesep)
     file.write("# imports" + os.linesep)
     file.write(documentation +"  # Documentation" + os.linesep)
+    file.write("# https://devguide.python.org/documenting/ " + os.linesep)
     file.write("# gobal vars" + os.linesep)
     file.write("# class" + os.linesep)
     file.write("#   init function" + os.linesep)
